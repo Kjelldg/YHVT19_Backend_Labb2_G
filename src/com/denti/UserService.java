@@ -21,7 +21,7 @@ public class UserService {
 
 	UserDao userDao = new UserDao();
 
-	// http://localhost:8080/YHVT19_Backend_Labb2_G/rest/UserService/addusersURL/inputTheNameHere/inputTheProfessionHere
+	// http://localhost:8080/YHVT19_Backend_Labb2_G/rest/UserService/addusersURL/inputNameHere/inputProfessionHere
 	@GET
 	@Path("/addusersURL/{param}/{param2}")
 	@Produces(MediaType.APPLICATION_XML)

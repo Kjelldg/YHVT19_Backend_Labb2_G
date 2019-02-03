@@ -21,6 +21,10 @@ public class UserService {
 
 	UserDao userDao = new UserDao();
 
+	/*
+	 * Use below URL to add users to the database. The URL takes 2 params so that
+	 * the user can add a name and profession into the MySQL database.
+	 */
 	// http://localhost:8080/YHVT19_Backend_Labb2_G/rest/UserService/addusersURL/inputNameHere/inputProfessionHere
 	@GET
 	@Path("/addusersURL/{param}/{param2}")
@@ -31,6 +35,7 @@ public class UserService {
 		userDao.writeToSQL_URL(inputName, inputProfession);
 	}
 
+	// The URL below retrieves users from the database.
 	// http://localhost:8080/YHVT19_Backend_Labb2_G/rest/UserService/viewusers
 	@GET
 	@Path("/viewusers")

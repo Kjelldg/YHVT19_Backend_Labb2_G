@@ -28,7 +28,10 @@ public class UserDao {
 	protected String dbPass = "MySQL1243!";
 	protected String dbName = "database_labb2";
 	protected String jdbc = "jdbc:mysql://";
-	protected String jdbcURL = ":3306/database_labb2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT";
+	protected String jdbcURL = ":3306/database_labb2?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC";
+
+	// protected String jdbcURL =
+	// ":3306/database_labb2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT";
 
 	/*
 	 * This method writes to the database using the input from the params in the

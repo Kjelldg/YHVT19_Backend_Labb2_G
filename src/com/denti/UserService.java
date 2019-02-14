@@ -25,7 +25,7 @@ public class UserService {
 	 * Use below URL to add users to the database. The URL takes 2 params so that
 	 * the user can add a name and profession into the MySQL database.
 	 */
-	// http://localhost:8080/YHVT19_Backend_Labb2_G/rest/UserService/addusersURL/inputNameHere/inputProfessionHere
+	// http://localhost:8090/YHVT19_Backend_Labb2_G/rest/UserService/addusersURL/inputNameHere/inputProfessionHere
 	@GET
 	@Path("/addusersURL/{param}/{param2}")
 	@Produces(MediaType.APPLICATION_XML)
@@ -36,11 +36,36 @@ public class UserService {
 	}
 
 	// The URL below retrieves users from the database.
-	// http://localhost:8080/YHVT19_Backend_Labb2_G/rest/UserService/viewusers
+	// http://localhost:8090/YHVT19_Backend_Labb2_G/rest/UserService/viewusers
 	@GET
 	@Path("/viewusers")
 	@Produces(MediaType.APPLICATION_XML)
 	public List<User> SQL_Retriever()
+			throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+
+		return userDao.retrieveFromSQL();
+	}
+
+	/*
+	 * Use below URL to add users to the database. The URL takes 2 params so that
+	 * the user can add a name and profession into the MySQL database.
+	 */
+	// http://localhost:8090/YHVT19_Backend_Labb2_G/rest/UserService/addusersURL_JSON/inputNameHere/inputProfessionHere
+	@GET
+	@Path("/addusersURL_JSON/{param}/{param2}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void SQL_Writer_URL_JSON(@PathParam("param") String inputName, @PathParam("param2") String inputProfession)
+			throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+
+		userDao.writeToSQL_URL(inputName, inputProfession);
+	}
+
+	// The URL below retrieves users from the database.
+	// http://localhost:8090/YHVT19_Backend_Labb2_G/rest/UserService/viewusers_JSON
+	@GET
+	@Path("/viewusers_JSON")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<User> SQL_Retriever_JSON()
 			throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
 
 		return userDao.retrieveFromSQL();
